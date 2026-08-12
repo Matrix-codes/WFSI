@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: wti-portal
+    env: static
+    buildCommand: node build-bundle.cjs
+    staticPublishPath: ./dist

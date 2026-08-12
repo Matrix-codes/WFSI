@@ -1455,8 +1455,20 @@ function setupVerificationEngine() {
    5. GLOBAL MODAL CONTROLLERS & PRINT PREVIEWS
 ------------------------------------------------------------- */
 function setupGlobalModals() {
+  const overlays = document.querySelectorAll('.modal-overlay');
+  overlays.forEach(overlay => {
+    // Close when clicking the overlay background
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+      }
+    });
+  });
+
   const closeBtns = document.querySelectorAll('.modal-close-btn');
   closeBtns.forEach(btn => {
+    // Ensure close button is always on top
+    btn.style.zIndex = '9999';
     btn.addEventListener('click', () => {
       document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
     });
