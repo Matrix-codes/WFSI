@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WORLD TECHNICAL INSTITUTE (WTI) — Deoria, UP | Fire & Safety, ITI, Diplomas, Computer</title>
+  <meta name="description"
+    content="World Technical Institute (WTI) / World Fire & Safety Institute (WFSI), Deoria UP. BSS, NCVTE, MSBTE & DigiLocker Approved Technical & Safety Training Institute. 100% Placement Assistance in India & Gulf.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- WebGL 3D Particle Constellation Background Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- LEFT NAVIGATION SIDEBAR MENU (FULL HEIGHT 100VH) -->
+  <aside class="left-app-sidebar" id="left-app-sidebar">
+    <div class="left-sidebar-header">
+      <div class="left-sidebar-brand" onclick="window.switchPortalView('home-portal')">
+        <img src="wti-logo.png" alt="WTI Official Logo" />
+        <div>
+          <div class="left-sidebar-brand-title">WTI PORTAL</div>
+          <div class="left-sidebar-brand-subtitle">World Technical Institute</div>
+        </div>
+      </div>
+      <button class="left-sidebar-close-btn" id="btn-close-left-sidebar" title="Close Menu">&times;</button>
+    </div>
+
+    <div class="left-sidebar-menu">
+      <!-- CATEGORY 1: MAIN PORTALS -->
+      <div>
+        <div class="left-menu-category-title">📌 Main Navigation</div>
+        <ul class="left-menu-nav-list">
+          <li>
+            <a class="left-menu-item active" data-view="home-portal" onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">🏠</span>
+              <span>Home Portal</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-view="student-portal" onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">🎓</span>
+              <span>Student Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-view="verification-portal" onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">📜</span>
+              <span>QR Verification</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CATEGORY 2: COURSES & CATEGORIES -->
+      <div>
+        <div class="left-menu-category-title">📚 Course Divisions</div>
+        <ul class="left-menu-nav-list">
+          <li>
+            <a class="left-menu-item" data-section="cat-section" data-cat="fire-safety"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">🔥</span>
+              <span>Fire & Safety Courses</span>
+              <span class="left-menu-badge badge-status badge-passed">10 Courses</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-section="cat-section" data-cat="iti-technical"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">⚙️</span>
+              <span>ITI Technical Trades</span>
+              <span class="left-menu-badge badge-status badge-passed">6 Trades</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-section="cat-section" data-cat="diploma-engg"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">🛠️</span>
+              <span>Engineering Diplomas</span>
+              <span class="left-menu-badge badge-status badge-passed">5 Diplomas</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-section="cat-section" data-cat="computer"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">💻</span>
+              <span>Computer Courses</span>
+              <span class="left-menu-badge badge-status badge-passed">6 Courses</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-section="cat-section" data-cat="short-skills"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">📜</span>
+              <span>Short Safety Skills</span>
+              <span class="left-menu-badge badge-status badge-passed">12 Certs</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CATEGORY 3: STUDENT SERVICES -->
+      <div>
+        <div class="left-menu-category-title">⚡ Student Services</div>
+        <ul class="left-menu-nav-list">
+          <li>
+            <a class="left-menu-item" data-action="open-id-modal" onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">🪪</span>
+              <span>Digital Student ID</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-action="switch-student-study-material"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">📖</span>
+              <span>Study Material PDFs</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-action="switch-student-exam"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">📝</span>
+              <span>Online CBT Exam</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-action="switch-student-result"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">📊</span>
+              <span>Marksheet & Results</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-action="switch-student-attendance"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">📅</span>
+              <span>Attendance Log</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-action="switch-student-fees"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">💰</span>
+              <span>Fees & Receipts</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-action="switch-student-placement-jobs"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">💼</span>
+              <span>Gulf & India Jobs</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-action="switch-student-notices"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">📢</span>
+              <span>Notice Board</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CATEGORY 4: INSTITUTE INFO -->
+      <div>
+        <div class="left-menu-category-title">🏛️ Campus & Contact</div>
+        <ul class="left-menu-nav-list">
+          <li>
+            <a class="left-menu-item" data-section="affiliations-section"
+              onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">🏆</span>
+              <span>Affiliations & Approvals</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-section="faculty-section" onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">👨‍🏫</span>
+              <span>Senior Technical Faculty</span>
+            </a>
+          </li>
+          <li>
+            <a class="left-menu-item" data-section="contact-section" onclick="window.handleLeftMenuClick(this, event)">
+              <span class="left-menu-icon">📍</span>
+              <span>Contact & Location</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="left-sidebar-footer">
+      <div style="font-weight:700; color:#5DFFD9;">WORLD TECHNICAL INSTITUTE</div>
+      <div style="font-size:0.72rem; margin-top:2px;">Regd: Deoria, UP | 8528372209</div>
+    </div>
+  </aside>
+
+  <div class="app-wrapper">
+    <!-- TOP ANNOUNCEMENT TICKER -->
+    <div class="top-ticker-bar">
+      <div class="ticker-content">
+        <span class="ticker-badge">⚡ ADMISSION OPEN 2026</span>
+        <span>🔥 New Batches Starting for ADIS, PGDIS, DFSM, Fire Fighting, ITI Electrician & Computer Courses! | Free
+          Computer & NEBOSH Guidance Classes</span>
+      </div>
+      <div class="top-contacts">
+        <a href="tel:8528372209">📞 Call: 8528372209</a>
+        <a href="https://wa.me/918528372209" target="_blank" style="color:#5DFFD9;">💬 WhatsApp: 8528372209</a>
+      </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand-wrapper">
+          <button class="btn-sidebar-toggle" id="btn-toggle-left-menu" title="Toggle Navigation Menu">
+            <span>☰</span>
+            <span>Menu</span>
+          </button>
+          <div class="brand-logo" onclick="window.switchPortalView('home-portal')">
+            <img src="wti-logo.png" alt="World Technical Institute Logo" class="official-brand-logo-img" />
+            <div class="brand-text">
+              <h1>WORLD TECHNICAL INSTITUTE</h1>
+              <p>WORLD FIRE & SAFETY INSTITUTE (WFSI) — DEORIA (U.P.)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="portal-tabs header-portal-tabs">
+          <button class="portal-btn active" data-view="home-portal" onclick="window.switchPortalView('home-portal')">🏠
+            Home</button>
+          <button class="portal-btn" data-view="student-portal" onclick="window.switchPortalView('student-portal')">🎓
+            Student</button>
+          <button class="portal-btn" data-view="verification-portal"
+            onclick="window.switchPortalView('verification-portal')">📜 Verification</button>
+          <button class="portal-btn" data-view="admin-portal" onclick="window.switchPortalView('admin-portal')">⚡
+            Admin</button>
+        </div>
+
+        <div class="nav-actions">
+          <button class="btn-verify-quick" id="btn-verify-quick-nav">🔍 Verify Certificate</button>
+          <button class="btn-primary" id="btn-open-auth-modal" style="padding:8px 18px; font-size:0.85rem;">🔑 Login /
+            Register</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- TOPBAR BREADCRUMB STRIP -->
+    <div class="topbar-strip">
+      <div class="topbar-container">
+        <div class="breadcrumb-box">
+          <a href="javascript:void(0)" onclick="event.preventDefault(); window.switchPortalView('home-portal')">🏛️ WTI
+            Campus</a>
+          <span class="separator">/</span>
+          <span class="current" style="color:#5DFFD9; font-weight:700;">Academic & Certification Portal</span>
+          <span class="separator">/</span>
+          <div class="date-pill">
+            <span id="topbar-live-date">📅 Academic Session 2026</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:center;">
+          <span class="badge-status badge-valid">● BSS & NCVTE Approved</span>
+          <span class="badge-status badge-passed">100% Gulf Placement</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         1. PUBLIC HOME PORTAL VIEW
+    ========================================================= -->
+    <main id="home-portal" class="view-container active">
+      <!-- HERO BANNER SECTION -->
+      <section class="hero-banner">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-badge-pill">
+              <span>⚡ 2026 Academic Edition</span>
+              <span>•</span>
+              <span id="hero-flip-text" style="color:#5DFFD9; font-weight:800; text-transform:uppercase;">FIRE & SAFETY
+                COURSES</span>
+            </div>
+
+            <h1 class="hero-title">
+              The Future of <span>Industrial Safety &amp; Technical</span> Education.
+            </h1>
+
+            <div class="hero-address-strip">
+              📍 Registered Campus: First Floor, Sanjeevani Eye Hospital, Raghav Nagar, Deoria, Uttar Pradesh |
+              Helpline: 8528372209
+            </div>
+
+            <p style="font-size:1.05rem; color:var(--text-muted); margin-bottom:28px; line-height:1.65;">
+              Premier institution for <strong>Fire & Safety Engineering, ITI Trades, Technical Diplomas, Computer
+                Applications, and Short-Term Industrial Safety Certifications</strong>. Approved by Govt of India & Gulf
+              Countries with 100% Placement Support.
+            </p>
+
+            <div class="hero-cta-buttons">
+              <button class="btn-primary" onclick="window.switchPortalView('student-portal')">🎓
+                Enter Student Lobby &rarr;</button>
+              <button class="btn-secondary" onclick="window.switchPortalView('verification-portal')">📜 Verify
+                Certificate
+                Online</button>
+            </div>
+
+            <!-- LIVE KPI BADGES -->
+            <div class="hero-kpi-grid">
+              <div>
+                <div style="font-family:var(--font-heading); font-size:1.8rem; font-weight:900; color:#5DFFD9;">12,450+
+                </div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">Trained Alumni</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-heading); font-size:1.8rem; font-weight:900; color:#12DCEF;">100%
+                </div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">Placement Record</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-heading); font-size:1.8rem; font-weight:900; color:#33BC65;">4,800+
+                </div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">Gulf Placements</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-heading); font-size:1.8rem; font-weight:900; color:#f59e0b;">35+
+                </div>
+                <div style="font-size:0.82rem; color:var(--text-muted);">Technical Courses</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card-preview">
+            <div style="text-align:center; margin-bottom:18px;">
+              <img src="wti-logo.png" alt="WTI Official Emblem"
+                style="height:76px; background:#ffffff; padding:6px; border-radius:14px; box-shadow:0 0 25px rgba(51, 188, 101, 0.4);" />
+            </div>
+            <h3
+              style="font-family:var(--font-heading); font-size:1.25rem; margin-bottom:18px; color:#5DFFD9; text-align:center; font-weight:800;">
+              WTI Institute Key Highlights</h3>
+            <div class="hero-stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">ADIS & DFSM</div>
+                <div class="stat-label">Fire & Safety Leader</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">ITI Trades</div>
+                <div class="stat-label">Electrician & Fitter</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">DigiLocker</div>
+                <div class="stat-label">Govt Verified Certs</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">ISO 9001</div>
+                <div class="stat-label">Certified Institute</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCROLLYTELLING INTERACTIVE SECTION 1: SMART ONBOARDING & DIGITAL ID -->
+      <section class="story-step">
+        <div class="story-grid">
+          <div>
+            <div class="step-pill">01 • Smart Student Onboarding</div>
+            <h2 class="story-title">Instant Registration & Digital Student ID Card</h2>
+            <p class="story-desc">
+              Students get immediate digital identity cards complete with official Enrollment Numbers, QR verification
+              code, batch sessions, and instant profile sync with the Executive Faculty Dashboard.
+            </p>
+            <button class="btn-secondary" onclick="window.switchPortalView('student-portal')">Access Student Portal
+              &rarr;</button>
+          </div>
+          <div>
+            <div class="glass-card" style="border-left: 4px solid #33BC65; padding: 28px 32px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+                <span style="font-weight:800; color:#5DFFD9; font-size:0.9rem;">Candidate Digital Identity Card</span>
+                <span class="badge-status badge-valid">Active Session</span>
+              </div>
+              <div style="font-size:1.4rem; font-weight:800; color:#ffffff; margin-bottom:4px;">Rahul Sharma</div>
+              <div style="font-size:0.92rem; color:var(--text-muted); margin-bottom:12px;">
+                Enrollment No: <code style="color:#5DFFD9; font-weight:800; font-size:1rem;">WTI/2026/0891</code>
+              </div>
+              <div style="font-size:0.88rem; color:var(--text-muted);">
+                Course: <strong>Diploma in Fire & Safety Management</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCROLLYTELLING INTERACTIVE SECTION 2: HIGH-INTEGRITY PROCTORING & SAFETY LABS -->
+      <section class="story-step">
+        <div class="story-grid">
+          <div>
+            <div class="glass-card" style="border-left: 4px solid #ef4444; padding: 28px 32px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+                <span style="font-weight:800; color:#f87171; font-size:0.95rem;">Proctored Examination Guard</span>
+                <span class="badge-status badge-urgent">Active Proctor</span>
+              </div>
+              <p style="font-size:0.95rem; color:#ffffff; margin-bottom:14px; line-height:1.5;">
+                ⚠️ <strong>Tab-Switch Detection</strong>: Server side warning logs recorded.
+              </p>
+              <div style="font-size:0.85rem; color:var(--text-muted); line-height:1.7; padding-left:4px;">
+                • Fullscreen Assessment Enforcement<br>
+                • Right-Click & Copy-Paste Disabled<br>
+                • Automated Submission on Timed Countdown
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="step-pill">02 • High-Integrity Proctoring</div>
+            <h2 class="story-title">Real-Time Focus Detection & Online CBT Exams</h2>
+            <p class="story-desc">
+              Computer-based online assessments for Fire & Safety, ITI, and Computer courses feature interactive
+              question navigation, real-time focus detection, instant scoring, and auto-submit features.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCROLLYTELLING INTERACTIVE SECTION 3: VERIFIED CERTIFICATION -->
+      <section class="story-step">
+        <div class="story-grid">
+          <div>
+            <div class="step-pill">03 • Verified Certification</div>
+            <h2 class="story-title">Instant Auto-Grading & Printable Achievement Certificates</h2>
+            <p class="story-desc">
+              Upon successful exam assessment, candidates receive anti-forge digital certificates complete with unique
+              Certificate IDs, QR verification badges, distinction grades, and official faculty seals.
+            </p>
+            <button class="btn-secondary" onclick="window.switchPortalView('verification-portal')">Verify Certificate
+              Online
+              &rarr;</button>
+          </div>
+          <div>
+            <div class="glass-card"
+              style="border: 2px solid #5DFFD9; background: rgba(10, 24, 18, 0.9); padding: 32px 28px;">
+              <div style="text-align: center;">
+                <div style="font-size: 2.2rem; margin-bottom: 6px;">🏆</div>
+                <div
+                  style="font-family: var(--font-certificate); font-size: 1.15rem; font-weight: 800; color: #5DFFD9; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Certificate of Academic Excellence</div>
+                <div style="font-size: 0.88rem; color: var(--text-muted); margin: 8px 0;">Awarded to <strong
+                    style="color: #ffffff;">Rahul Sharma</strong> for Outstanding Performance</div>
+                <div style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 10px 0;">Grade A+
+                  (Distinction)</div>
+                <code style="font-size: 0.82rem; color: #12DCEF; font-weight:800;">ID: WTI/FS/2026/000125</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 CORE HOME CARDS SECTION -->
+      <section class="section-wrapper">
+        <div class="section-header">
+          <div class="section-subtitle">WTI DIGITAL ECOSYSTEM</div>
+          <h2 class="section-title">Explore All 14 Core Institute Portals</h2>
+        </div>
+        <div class="home-cards-grid" id="home-cards-grid">
+          <!-- Dynamically Rendered by src/app.js -->
+        </div>
+      </section>
+
+      <!-- STUDENT CATEGORIES EXPLORER -->
+      <section class="section-wrapper" id="cat-section">
+        <div class="section-header">
+          <div class="section-subtitle">COURSE CATEGORY DIVISION</div>
+          <h2 class="section-title">🎓 Student Course Categories</h2>
+        </div>
+        <div class="categories-accordion" id="categories-explorer">
+          <!-- Dynamically Rendered by src/app.js -->
+        </div>
+      </section>
+
+      <!-- AFFILIATIONS & APPROVALS -->
+      <section class="affiliations-section" id="affiliations-section">
+        <div class="section-header">
+          <div class="section-subtitle">NATIONAL & INTERNATIONAL VALIDITY</div>
+          <h2 class="section-title">Official Affiliations & Approvals</h2>
+        </div>
+        <div class="affil-grid" id="affiliations-container">
+          <!-- Dynamically Rendered by src/app.js -->
+        </div>
+      </section>
+
+      <!-- FACULTY MEMBERS SECTION -->
+      <section class="section-wrapper" id="faculty-section">
+        <div class="section-header">
+          <div class="section-subtitle">EXPERT TRAINERS</div>
+          <h2 class="section-title">Our Senior Technical Faculty & Drill Masters</h2>
+        </div>
+        <div class="home-cards-grid" id="faculty-grid">
+          <!-- Dynamically Rendered by src/app.js -->
+        </div>
+      </section>
+
+      <!-- CONTACT & LOCATION SECTION -->
+      <section class="section-wrapper" id="contact-section">
+        <div class="section-header">
+          <div class="section-subtitle">GET IN TOUCH</div>
+          <h2 class="section-title">📍 Contact World Technical Institute</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px;">
+          <div class="glass-card">
+            <h3 style="font-family:var(--font-heading); font-size:1.3rem; color:#5DFFD9; margin-bottom:16px;">Campus
+              Address & Phone</h3>
+            <div style="margin-bottom:12px; font-size:0.95rem;">
+              <strong>🏠 Registered Address:</strong><br />
+              First Floor, Sanjeevani Eye Hospital, Raghav Nagar, Deoria, Uttar Pradesh
+            </div>
+            <div style="margin-bottom:12px; font-size:0.95rem;">
+              <strong>📞 Direct Hotline:</strong> <a href="tel:8528372209"
+                style="color:#33BC65; font-weight:800; text-decoration:none;">8528372209</a>
+            </div>
+            <div style="margin-bottom:12px; font-size:0.95rem;">
+              <strong>💬 WhatsApp:</strong> <a href="https://wa.me/918528372209" target="_blank"
+                style="color:#5DFFD9; font-weight:800; text-decoration:none;">8528372209</a>
+            </div>
+            <div style="margin-bottom:14px; font-size:0.95rem;">
+              <strong>✉️ Email:</strong> info@wtideoria.com
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding:12px; overflow:hidden;">
+            <iframe title="WTI Deoria Google Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.123456!2d83.7780!3d26.5020!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDMwJzA3LjIiTiA4M8KwNDYnNDAuOCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+              width="100%" height="260" style="border:0; border-radius:10px;" allowfullscreen=""
+              loading="lazy"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================
+         2. STUDENT PORTAL VIEW
+    ========================================================= -->
+    <main id="student-portal" class="view-container">
+      <div class="dashboard-layout">
+        <!-- SIDEBAR -->
+        <aside class="dash-sidebar">
+          <div class="user-profile-summary">
+            <img id="stu-profile-avatar" src="" alt="Student" class="profile-avatar" />
+            <div id="stu-profile-name" class="profile-name">Rahul Sharma</div>
+            <div id="stu-profile-course" class="profile-role">Diploma in Fire & Safety</div>
+          </div>
+
+          <nav class="dash-menu">
+            <button class="dash-menu-item active" data-tab="overview">📊 Overview Dashboard</button>
+            <button class="dash-menu-item" data-tab="certificates">📜 My Certificates</button>
+            <button class="dash-menu-item" data-tab="study-material">📖 Study Material</button>
+            <button class="dash-menu-item" data-tab="exam">📝 Online Exam</button>
+            <button class="dash-menu-item" data-tab="result">📊 Marksheet & Result</button>
+            <button class="dash-menu-item" data-tab="attendance">📅 Attendance Log</button>
+            <button class="dash-menu-item" data-tab="fees">💰 Fees & Payment</button>
+            <button class="dash-menu-item" data-tab="placement-jobs">💼 Job & Placement</button>
+            <button class="dash-menu-item" data-tab="notices">📢 Notice Board</button>
+          </nav>
+        </aside>
+
+        <!-- CONTENT PANES -->
+        <section class="dash-content">
+          <div id="tab-overview" class="dash-tab-pane active"></div>
+          <div id="tab-certificates" class="dash-tab-pane"></div>
+          <div id="tab-study-material" class="dash-tab-pane"></div>
+          <div id="tab-exam" class="dash-tab-pane"></div>
+          <div id="tab-result" class="dash-tab-pane"></div>
+          <div id="tab-attendance" class="dash-tab-pane"></div>
+          <div id="tab-fees" class="dash-tab-pane"></div>
+          <div id="tab-placement-jobs" class="dash-tab-pane"></div>
+          <div id="tab-notices" class="dash-tab-pane"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- =========================================================
+         3. ADMIN PANEL VIEW (WITH DEDICATED LOGIN GATE)
+    ========================================================= -->
+    <main id="admin-portal" class="view-container">
+      <!-- ADMIN LOGIN GATE SCREEN -->
+      <div id="admin-login-screen" style="max-width:480px; margin:60px auto; padding:0 20px;">
+        <div class="glass-card" style="border:2px solid #33BC65; text-align:center;">
+          <div
+            style="width:70px; height:70px; background:var(--primary-gradient); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 16px auto; font-size:2rem; color:#070707;">
+            🔐</div>
+
+          <h2 style="font-family:var(--font-heading); font-size:1.6rem; color:#FFFFFF; margin-bottom:4px;">WTI Executive
+            Admin Login</h2>
+          <p style="font-size:0.83rem; color:var(--text-muted); margin-bottom:20px;">Authorized Access Only — World
+            Technical Institute Management Portal</p>
+
+          <form id="form-admin-login">
+            <div class="form-group" style="text-align:left;">
+              <label class="form-label">Admin Username / Email</label>
+              <input type="text" id="admin-input-user" class="form-input" placeholder="e.g. admin" value="admin"
+                required style="padding:12px;" />
+            </div>
+
+            <div class="form-group" style="text-align:left;">
+              <label class="form-label">Password / Security Key</label>
+              <input type="password" id="admin-input-pass" class="form-input" placeholder="••••••••" value="admin123"
+                required style="padding:12px;" />
+            </div>
+
+            <div id="admin-login-error"
+              style="display:none; color:var(--danger); font-size:0.82rem; font-weight:700; margin-bottom:12px; background:rgba(239,68,68,0.2); padding:8px; border-radius:6px;">
+              ❌ Invalid Admin Credentials. Please try again.</div>
+
+            <button type="submit" class="btn-primary"
+              style="width:100%; justify-content:center; padding:12px; font-size:0.95rem; margin-top:6px;">🔓 Login to
+              Admin Control Panel</button>
+          </form>
+
+          <div
+            style="background:rgba(255,255,255,0.05); border:1px dashed rgba(93,255,217,0.2); border-radius:10px; padding:12px; margin-top:20px; font-size:0.78rem; color:var(--text-muted);">
+            <strong>🔑 Executive Admin Credentials:</strong><br />
+            Username: <code style="color:#5DFFD9; font-weight:800;">admin</code> | Password: <code
+              style="color:#5DFFD9; font-weight:800;">admin123</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUTHENTICATED ADMIN DASHBOARD -->
+      <div id="admin-dashboard-screen" style="display:none;">
+        <div style="max-width:1400px; margin:16px auto 0 auto; padding:0 24px;">
+          <div
+            style="display:flex; justify-content:space-between; align-items:center; background:rgba(10, 24, 18, 0.85); color:#fff; padding:14px 24px; border-radius:14px; border-bottom:3px solid #33BC65; border:1px solid rgba(93, 255, 217, 0.2);">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span style="font-size:1.3rem;">🛡️</span>
+              <div>
+                <strong style="font-size:0.95rem; color:#5DFFD9;">WTI Super Admin Authenticated Session</strong>
+                <div style="font-size:0.72rem; color:var(--text-muted);">Authorized Access • Full Certificate Generator
+                  & Student Directory Privilege</div>
+              </div>
+            </div>
+            <button class="btn-secondary" id="btn-admin-logout"
+              style="padding:6px 16px; font-size:0.82rem; background:rgba(239, 68, 68, 0.2); border-color:#ef4444; color:#fca5a5;">🚪
+              Logout Admin</button>
+          </div>
+        </div>
+
+        <div class="dashboard-layout">
+          <!-- ADMIN SIDEBAR -->
+          <aside class="dash-sidebar">
+            <div class="user-profile-summary">
+              <div
+                style="width:74px; height:74px; border-radius:50%; background:var(--primary-gradient); color:#070707; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:1.4rem; margin:0 auto 10px auto; box-shadow:0 0 20px rgba(51, 188, 101, 0.4);">
+                ADM</div>
+              <div class="profile-name">WTI Administrator</div>
+              <div class="profile-role">Master Control Panel</div>
+            </div>
+
+            <nav class="dash-menu">
+              <button class="dash-menu-item admin-active" data-admin-tab="overview">📊 Executive Overview</button>
+              <button class="dash-menu-item" data-admin-tab="cert-generator">📜 Certificate Generator</button>
+              <button class="dash-menu-item" data-admin-tab="students">👨‍🎓 Student Management</button>
+            </nav>
+          </aside>
+
+          <!-- ADMIN CONTENT PANES -->
+          <section class="dash-content">
+            <div id="admin-tab-overview" class="admin-tab-pane active"></div>
+            <div id="admin-tab-cert-generator" class="admin-tab-pane"></div>
+            <div id="admin-tab-students" class="admin-tab-pane"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================================================
+         4. LIVE QR CERTIFICATE VERIFICATION VIEW
+    ========================================================= -->
+    <main id="verification-portal" class="view-container">
+      <section class="section-wrapper" style="max-width:840px;">
+        <div class="section-header">
+          <div class="section-subtitle">LIVE ONLINE AUTHENTICITY SYSTEM</div>
+          <h2 class="section-title">📜 WTI Certificate Verification Portal</h2>
+          <p style="color:var(--text-muted); font-size:0.92rem; margin-top:8px;">Employers and authorities can enter
+            Certificate No (e.g. <strong>WTI/FS/2026/000125</strong>) to check certificate authenticity in real-time.
+          </p>
+        </div>
+
+        <form id="form-cert-verify-search" style="display:flex; gap:14px; margin-bottom:34px;">
+          <input type="text" id="input-cert-search" class="form-input"
+            placeholder="Enter Certificate Number (e.g. WTI/FS/2026/000125)..." value="WTI/FS/2026/000125" required
+            style="padding:14px 20px; font-size:1rem;" />
+          <button type="submit" class="btn-primary" style="padding:14px 30px; font-size:1rem; white-space:nowrap;">🔍
+            Verify Certificate</button>
+        </form>
+
+        <div id="verify-result-container">
+          <!-- Verification Output Rendered Here -->
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================
+         GLOBAL MODALS
+    ========================================================= -->
+    <!-- CERTIFICATE PRINT MODAL -->
+    <div class="modal-overlay" id="modal-certificate-view">
+      <div class="modal-card" style="max-width:960px;">
+        <button class="modal-close-btn">&times;</button>
+        <div id="certificate-render-frame"></div>
+        <div style="text-align:center; margin-top:20px;">
+          <button class="btn-primary" onclick="window.print()" style="padding:12px 28px;">🖨️ Download / Print High-Res
+            PDF Certificate</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIGITAL ID CARD MODAL -->
+    <div class="modal-overlay" id="modal-idcard-view">
+      <div class="modal-card" style="max-width:420px; background:transparent; box-shadow:none; padding:0; border:none;">
+        <button class="modal-close-btn" style="color:#fff; background:rgba(0,0,0,0.6);">&times;</button>
+        <div id="idcard-render-frame"></div>
+        <div style="text-align:center; margin-top:16px;">
+          <button class="btn-primary" onclick="window.print()" style="padding:10px 24px;">🖨️ Print Student ID
+            Card</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTHENTICATION (LOGIN / REGISTER) MODAL -->
+    <div class="modal-overlay" id="modal-auth-view">
+      <div class="modal-card" style="max-width:480px;">
+        <button class="modal-close-btn">&times;</button>
+
+        <div style="text-align:center; margin-bottom:20px;">
+          <div style="font-size:2.4rem; margin-bottom:4px;">🔐</div>
+          <h2 style="font-family:var(--font-heading); font-size:1.5rem; color:#FFFFFF;" id="auth-modal-title">Institute
+            Portal Access</h2>
+          <p style="font-size:0.82rem; color:var(--text-muted);">World Technical Institute • Student & Executive Admin
+            Portal</p>
+        </div>
+
+        <!-- Auth Mode Switcher -->
+        <div
+          style="display:flex; background:rgba(255,255,255,0.06); padding:4px; border-radius:12px; gap:4px; margin-bottom:20px; border:1px solid rgba(93,255,217,0.2);">
+          <button class="auth-tab-btn active" id="auth-tab-admin"
+            style="flex:1; padding:9px 6px; border:none; background:var(--primary-gradient); color:#070707; font-weight:800; border-radius:8px; cursor:pointer; font-size:0.82rem;">🛡️
+            Admin Login</button>
+          <button class="auth-tab-btn" id="auth-tab-student"
+            style="flex:1; padding:9px 6px; border:none; background:transparent; color:#FFF; font-weight:700; border-radius:8px; cursor:pointer; font-size:0.82rem;">🎓
+            Student Login</button>
+          <button class="auth-tab-btn" id="auth-tab-register"
+            style="flex:1; padding:9px 6px; border:none; background:transparent; color:#FFF; font-weight:700; border-radius:8px; cursor:pointer; font-size:0.82rem;">📝
+            Register</button>
+        </div>
+
+        <!-- Admin Login Form -->
+        <form id="modal-form-admin-login">
+          <div class="form-group">
+            <label class="form-label">Admin Username</label>
+            <input type="text" id="modal-admin-user" class="form-input" placeholder="e.g. admin" value="admin"
+              required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Admin Password</label>
+            <input type="password" id="modal-admin-pass" class="form-input" placeholder="Enter admin123"
+              value="admin123" required />
+          </div>
+          <div id="modal-admin-error"
+            style="display:none; color:var(--danger); font-size:0.82rem; font-weight:700; margin-bottom:12px; background:rgba(239,68,68,0.2); padding:8px; border-radius:6px;">
+            ❌ Invalid Admin Credentials. (Username: admin, Password: admin123)</div>
+          <button type="submit" class="btn-primary"
+            style="width:100%; justify-content:center; padding:12px; background:linear-gradient(135deg, #12DCEF 0%, #5DFFD9 100%); color:#070707; font-size:0.95rem;">🔓
+            Login to Master Admin Panel</button>
+        </form>
+
+        <!-- Student Login Form -->
+        <form id="modal-form-student-login" style="display:none;">
+          <div class="form-group">
+            <label class="form-label">Enrollment No / Mobile Number</label>
+            <input type="text" id="modal-stu-login-id" class="form-input" placeholder="e.g. WTI/2026/0891"
+              value="WTI/2026/0891" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-input" placeholder="••••••••" value="123456" required />
+          </div>
+          <div id="modal-stu-error"
+            style="display:none; color:var(--danger); font-size:0.82rem; font-weight:700; margin-bottom:12px; background:rgba(239,68,68,0.2); padding:8px; border-radius:6px;">
+            ❌ Record not found. Please click Register to create student account.</div>
+          <button type="submit" class="btn-primary"
+            style="width:100%; justify-content:center; padding:12px; font-size:0.95rem;">🎓 Login to Student
+            Lobby</button>
+        </form>
+
+        <!-- Student Registration Form -->
+        <form id="modal-form-student-register" style="display:none;">
+          <div class="form-group">
+            <label class="form-label">Student Full Name</label>
+            <input type="text" id="reg-input-name" class="form-input" placeholder="e.g. Vikram Sharma" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Father's Name</label>
+            <input type="text" id="reg-input-father" class="form-input" placeholder="e.g. Rajesh Sharma" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Course Selection</label>
+            <select id="reg-input-course" class="form-select" required>
+              <option value="Diploma in Fire & Safety Management">Diploma in Fire & Safety Management</option>
+              <option value="Advanced Diploma in Industrial Safety">Advanced Diploma in Industrial Safety</option>
+              <option value="Electrician Trade (ITI)">Electrician Trade (ITI)</option>
+              <option value="Advance Diploma in Computer Applications">Advance Diploma in Computer Applications</option>
+              <option value="Work at Height & Fall Protection Safety">Work at Height & Fall Protection Safety</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mobile Number</label>
+            <input type="tel" id="reg-input-phone" class="form-input" placeholder="10-digit Phone Number" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Address</label>
+            <input type="text" id="reg-input-address" class="form-input" placeholder="e.g. Deoria, UP" required />
+          </div>
+          <button type="submit" class="btn-primary"
+            style="width:100%; justify-content:center; padding:12px; font-size:0.95rem;">🚀 Register Student & Create
+            Digital ID</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- REUSABLE GENERIC MODAL -->
+    <div class="modal-overlay" id="modal-generic">
+      <div class="modal-card">
+        <button class="modal-close-btn">&times;</button>
+        <div id="generic-modal-content"></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="wti-logo.png" alt="WTI Official Logo"
+            style="height:60px; background:#ffffff; padding:4px 8px; border-radius:8px; margin-bottom:14px; display:inline-block;" />
+          <h3>WORLD TECHNICAL INSTITUTE</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.6;">
+            Leading institute for Fire & Safety, ITI Technical Trades, Computer Science & Skill Certifications. Regd:
+            First Floor, Sanjeevani Eye Hospital, Raghav Nagar, Deoria, UP.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="#" onclick="document.querySelector('[data-view=\'home-portal\']').click()">Home Portal</a></li>
+            <li><a href="#" onclick="document.querySelector('[data-view=\'student-portal\']').click()">Student
+                Dashboard</a></li>
+            <li><a href="#" onclick="document.querySelector('[data-view=\'admin-portal\']').click()">Admin Dashboard</a>
+            </li>
+            <li><a href="#" onclick="document.querySelector('[data-view=\'verification-portal\']').click()">Certificate
+                Verification</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Affiliations</h3>
+          <ul class="footer-links">
+            <li>• BSS (Bharat Sevak Samaj)</li>
+            <li>• NCVTE Approved</li>
+            <li>• MSBTE Affiliated (ADIS, FR)</li>
+            <li>• DigiLocker Approved Certificate</li>
+            <li>• Govt of India & Gulf Valid</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Direct Contact</h3>
+          <p style="font-size:0.85rem; color:var(--text-muted);">📞 Phone / Call: 8528372209</p>
+          <p style="font-size:0.85rem; color:var(--text-muted);">💬 WhatsApp: 8528372209</p>
+          <p style="font-size:0.85rem; color:var(--text-muted);">📍 Deoria, Uttar Pradesh</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 World Technical Institute (WTI) / World Fire & Safety Institute (WFSI). All Rights Reserved.
+      </div>
+    </footer>
+  </div>
+
+  <!-- INTERACTIVE ANIMATION SCRIPTS -->
+  <script>
+    // 1. WebGL / 2D Canvas Constellation Particle Background
+    (function () {
+      const canvas = document.getElementById("webgl-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let width, height;
+      let particles = [];
+      const particleCount = 60;
+      const connectionDistance = 140;
+      let mouse = { x: null, y: null, radius: 160 };
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resize);
+      resize();
+
+      window.addEventListener("mousemove", (e) => { mouse.x = e.x; mouse.y = e.y; });
+      window.addEventListener("mouseout", () => { mouse.x = null; mouse.y = null; });
+
+      const colors = ["#33BC65", "#12DCEF", "#5DFFD9", "#235347"];
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.size = Math.random() * 2.2 + 1;
+          this.vx = (Math.random() - 0.5) * 0.6;
+          this.vy = (Math.random() - 0.5) * 0.6;
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+
+          if (mouse.x !== null && mouse.y !== null) {
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              let force = (mouse.radius - dist) / mouse.radius;
+              this.x += (dx / dist) * force * 1.2;
+              this.y += (dy / dist) * force * 1.2;
+            }
+          }
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = this.color;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+          for (let j = i + 1; j < particles.length; j++) {
+            let dx = particles[i].x - particles[j].x;
+            let dy = particles[i].y - particles[j].y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < connectionDistance) {
+              let alpha = (1 - dist / connectionDistance) * 0.22;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(93, 255, 217, ${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // 2. Dynamic Kinetic Flip Badge Text Cycling Engine
+    (function () {
+      const el = document.getElementById("hero-flip-text");
+      if (!el) return;
+      const words = ["FIRE & SAFETY COURSES", "ITI TECHNICAL TRADES", "ENGINEERING DIPLOMAS", "DIGITAL CERTIFICATION", "100% GULF PLACEMENTS"];
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % words.length;
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(-6px)';
+        setTimeout(() => {
+          el.innerText = words[idx];
+          el.style.transition = 'all 0.4s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 200);
+      }, 2600);
+    })();
+  </script>
+
+  <script src="./src/bundle.js?v=2"></script>
+</body>
+
+</html>

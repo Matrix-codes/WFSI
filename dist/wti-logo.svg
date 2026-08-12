@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#092040" />
+      <stop offset="50%" stop-color="#0b2a5b" />
+      <stop offset="100%" stop-color="#14467c" />
+    </linearGradient>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7b00" />
+      <stop offset="100%" stop-color="#e65100" />
+    </linearGradient>
+    <linearGradient id="wtiTextGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2b5a" />
+      <stop offset="100%" stop-color="#134377" />
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Blue Swoosh Arc -->
+  <path d="M 230 40 A 180 180 0 1 0 355 315 A 195 195 0 1 1 200 25 A 180 180 0 0 0 230 40 Z" fill="url(#blueGradient)" />
+  <path d="M 120 70 C 60 130 50 240 90 310 C 130 380 230 400 300 370 C 210 395 110 365 75 290 C 45 220 60 130 120 70 Z" fill="url(#blueGradient)" />
+
+  <!-- Outer Orange Swoosh Arc -->
+  <path d="M 170 85 C 230 40 330 45 375 90 C 370 70 310 30 220 50 C 185 60 160 75 145 90 C 155 86 163 85 170 85 Z" fill="url(#orangeGradient)" />
+  
+  <!-- Safety Helmet (Hardhat) -->
+  <g transform="translate(325, 80) scale(0.65)">
+    <!-- Helmet Shell -->
+    <path d="M 10 50 C 10 15 40 0 85 0 C 130 0 160 15 160 50 C 160 55 155 58 145 58 L 25 58 C 15 58 10 55 10 50 Z" fill="url(#orangeGradient)" filter="url(#dropShadow)" />
+    <!-- Helmet Brim / Rim -->
+    <path d="M 0 52 C 10 48 40 45 85 45 C 130 45 160 48 170 52 C 175 54 175 62 165 64 C 130 68 40 68 5 64 C -5 62 -5 54 0 52 Z" fill="#d84315" />
+    <!-- Center Ridge -->
+    <path d="M 75 2 C 75 2 85 -2 95 2 L 92 45 L 78 45 Z" fill="#ff9800" opacity="0.8" />
+    <!-- Helmet Base Band -->
+    <rect x="25" y="48" width="120" height="6" rx="2" fill="#0b2a5b" />
+  </g>
+
+  <!-- Orange Pillar / Right Bar (Part of I) -->
+  <rect x="365" y="150" width="36" height="150" rx="4" fill="url(#orangeGradient)" />
+
+  <!-- Road path inside WTI -->
+  <g>
+    <!-- Dark Road surface -->
+    <path d="M 160 320 C 190 280 230 240 285 220 C 240 255 200 295 170 335 C 230 375 310 350 360 290 C 300 350 200 375 160 320 Z" fill="#071b36" />
+    <path d="M 170 335 C 210 270 245 240 290 220 C 250 250 215 285 180 345 Z" fill="#133d6b" />
+    <!-- White Dotted Road Line -->
+    <path d="M 175 330 C 210 280 245 250 280 226" stroke="#ffffff" stroke-width="4" stroke-dasharray="10 8" fill="none" />
+  </g>
+
+  <!-- WTI Main Text Group -->
+  <g font-family="'Outfit', 'Arial Black', sans-serif" font-weight="900" fill="url(#wtiTextGradient)">
+    <!-- W -->
+    <path d="M 105 150 L 148 150 L 180 235 L 210 150 L 250 150 L 215 280 L 175 280 L 145 200 L 115 280 L 75 280 Z" />
+    <!-- T -->
+    <path d="M 230 150 L 360 150 L 360 188 L 312 188 L 312 280 L 268 280 L 268 188 L 230 188 Z" />
+    <!-- I (Top Bar + Connects with orange pillar) -->
+    <path d="M 350 150 L 415 150 L 415 175 L 350 175 Z" />
+  </g>
+
+  <!-- Bottom Brand Text -->
+  <!-- WORLD TECHNICAL INSTITUTE -->
+  <text x="250" y="420" font-family="'Outfit', 'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="28" fill="#092040" text-anchor="middle" letter-spacing="2">
+    WORLD TECHNICAL INSTITUTE
+  </text>
+
+  <!-- — INSTITUTE — -->
+  <g transform="translate(0, 455)">
+    <line x1="90" y1="-8" x2="160" y2="-8" stroke="#ff7b00" stroke-width="3" stroke-linecap="round" />
+    <text x="250" y="0" font-family="'Outfit', 'Inter', sans-serif" font-weight="800" font-size="20" fill="#e65100" text-anchor="middle" letter-spacing="6">
+      INSTITUTE
+    </text>
+    <line x1="340" y1="-8" x2="410" y2="-8" stroke="#ff7b00" stroke-width="3" stroke-linecap="round" />
+  </g>
+</svg>
